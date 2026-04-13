@@ -1,13 +1,13 @@
 {
   "app": {
-    "name": "Generador de Actas INTi",
+    "name": "ATASIS-INTi",
     "version": "1.0.0",
     "author": "INTi - Instituto Nacional de Tierras"
   },
   "directorio": {
     "presidente": "David José Hernández Giménez",
     "directores_principales": [
-      "Faiez Kassen Castillo1",
+      "Faiez Kassen Castillo",
       "Giomar Gisela Blanco Espinoza",
       "Lusmialit Lliliana Perdomo Torrealba",
       "David Arturo Gómez Rodríguez"

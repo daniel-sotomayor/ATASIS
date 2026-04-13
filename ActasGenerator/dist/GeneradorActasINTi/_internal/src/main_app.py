@@ -27,6 +27,7 @@ import os
 import json
 import tkinter as tk
 from tkinter import ttk, messagebox, filedialog
+from PIL import Image, ImageTk
 import threading
 from pathlib import Path
 from datetime import datetime
@@ -133,9 +134,11 @@ class ModernActaGeneratorApp:
         """
         if not USE_TTKBOOTSTRAP:
             style = ttk.Style()
-            style.configure("Title.TLabel",    font=("Helvetica", 16, "bold"))
-            style.configure("Subtitle.TLabel", font=("Helvetica", 12))
-            style.configure("Card.TFrame",     background="white", relief="raised")
+            style.configure("Title.TLabel",    font=("Helvetica", 16, "bold"), foreground="#1a5f7a")
+            style.configure("Subtitle.TLabel", font=("Helvetica", 12), foreground="#2c3e50")
+            style.configure("Card.TFrame",     background="white", relief="raised", borderwidth=2)
+            style.configure("Header.TLabel",   font=("Helvetica", 14, "bold"), foreground="#159895")
+            style.configure("Info.TLabel",     font=("Helvetica", 10), foreground="#57c5b6")
 
     # -----------------------------------------------------------------------
     # BARRA DE MENÚ
@@ -216,23 +219,42 @@ class ModernActaGeneratorApp:
 
     def _create_header(self, parent):
         """
-        Crea el encabezado superior con el nombre de la aplicación y su versión.
+        Crea el encabezado superior con el logo, nombre de la aplicación y su versión.
         """
         header_frame = ttk.Frame(parent)
         header_frame.pack(fill=tk.X, pady=(0, 10))
 
+        # Cargar y mostrar el logo
+        try:
+            from config import ASSETS_DIR
+            logo_path = ASSETS_DIR / "logo.jpeg"
+            if logo_path.exists():
+                # Cargar imagen y redimensionar
+                logo_img = Image.open(logo_path)
+                logo_img = logo_img.resize((40, 40), Image.Resampling.LANCZOS)
+                logo_photo = ImageTk.PhotoImage(logo_img)
+                logo_label = ttk.Label(header_frame, image=logo_photo)
+                logo_label.image = logo_photo  # Mantener referencia
+                logo_label.pack(side=tk.LEFT, padx=(0, 10))
+        except Exception as e:
+            # Si falla cargar el logo, continuar sin él
+            pass
+
+        # Título de la aplicación
         ttk.Label(
             header_frame,
-            text=f"📋 {APP_NAME}",
-            font=("Helvetica", 20, "bold")
+            text=f"{APP_NAME}",
+            font=("Helvetica", 18, "bold"),
+            foreground="#1a5f7a"
         ).pack(side=tk.LEFT)
 
+        # Versión
         ttk.Label(
             header_frame,
             text=f"v{APP_VERSION}",
-            font=("Helvetica", 10),
-            foreground="gray"
-        ).pack(side=tk.LEFT, padx=(10, 0), pady=(8, 0))
+            font=("Helvetica", 11),
+            foreground="#57c5b6"
+        ).pack(side=tk.LEFT, padx=(10, 0), pady=(5, 0))
 
     # -----------------------------------------------------------------------
     # PESTAÑA 1: DASHBOARD
@@ -520,6 +542,12 @@ class ModernActaGeneratorApp:
         ttk.Button(
             search_frame, text="📊 Exportar a Excel",
             command=self._exportar_historial_excel
+        ).pack(side=tk.LEFT, padx=(10, 0))
+
+        # Botón para limpiar toda la base de datos (con confirmación)
+        ttk.Button(
+            search_frame, text="🗑️ Limpiar Base de Datos",
+            command=self._limpiar_base_datos
         ).pack(side=tk.LEFT, padx=(10, 0))
 
         # --- Tabla de historial ---
@@ -1120,6 +1148,83 @@ class ModernActaGeneratorApp:
     # ===========================================================================
     # MÉTODOS DE AYUDA
     # ===========================================================================
+
+    def _exportar_historial_excel(self):
+        """
+        Exporta el historial completo de actas a un archivo Excel (.xlsx).
+
+        Usa pandas para construir el DataFrame y openpyxl para escribir el archivo.
+        Si pandas no está disponible muestra un aviso de instalación.
+        El usuario elige la ruta de destino mediante un diálogo de guardado.
+        """
+        if not PANDAS_DISPONIBLE:
+            messagebox.showerror(
+                "Error",
+                "pandas no está instalado.\nEjecute: pip install pandas openpyxl"
+            )
+            return
+
+        historial = db_manager.obtener_historial(limite=10000)
+        if not historial:
+            messagebox.showinfo("Sin datos", "No hay actas en el historial para exportar.")
+            return
+
+    def _limpiar_base_datos(self):
+        """
+        Limpia toda la base de datos (borra todos los registros de actas y estadísticas).
+        
+        Solicita confirmación del usuario antes de proceder.
+        Hace un backup automático antes de limpiar.
+        """
+        # Confirmación del usuario
+        respuesta = messagebox.askyesno(
+            "⚠️ Confirmar Limpieza",
+            "¿Está seguro de que desea eliminar TODOS los registros de la base de datos?\n\n"
+            "Esta acción:\n"
+            "  • Eliminará todas las actas del historial\n"
+            "  • Eliminará todas las estadísticas\n"
+            "  • Hacerá un backup automáticamente antes de limpiar\n\n"
+            "Esta operación es IRREVERSIBLE.\n\n"
+            "¿Desea continuar?",
+            icon=messagebox.WARNING
+        )
+        
+        if not respuesta:
+            return
+        
+        # Segunda confirmación (para evitar errores accidentales)
+        respuesta2 = messagebox.askyesno(
+            "⚠️ ÚLTIMA CONFIRMACIÓN",
+            "¿REALMENTE desea eliminar TODOS los datos?\n\n"
+            "Esta acción no se puede deshacer.",
+            icon=messagebox.WARNING
+        )
+        
+        if not respuesta2:
+            return
+        
+        # Ejecutar la limpieza
+        try:
+            if db_manager.limpiar_base_datos():
+                messagebox.showinfo(
+                    "✅ Limpieza Exitosa",
+                    "La base de datos ha sido limpiada correctamente.\n\n"
+                    "Se ha creado un backup automáticamente en la carpeta de historial."
+                )
+                # Recargar el historial y estadísticas
+                self._cargar_historial()
+                self._actualizar_estadisticas()
+            else:
+                messagebox.showerror(
+                    "❌ Error",
+                    "No se pudo limpiar la base de datos.\n"
+                    "Verifique el log para más detalles."
+                )
+        except Exception as e:
+            messagebox.showerror(
+                "❌ Error",
+                f"Ocurrió un error al limpiar la base de datos:\n{str(e)}"
+            )
 
     def _exportar_historial_excel(self):
         """

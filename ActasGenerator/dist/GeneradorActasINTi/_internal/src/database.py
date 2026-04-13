@@ -171,7 +171,7 @@ class DatabaseManager:
     # ESCRITURA
     # ------------------------------------------------------------------
 
-    def hacer_backup(self):
+    def hacer_backup(self, max_backups: int = 10):
         """
         Crea una copia de seguridad del archivo de base de datos en
         historial/backup/ con un timestamp en el nombre.
@@ -181,6 +181,9 @@ class DatabaseManager:
         Se llama automáticamente desde guardar_acta() antes de cada
         inserción, garantizando que siempre hay un backup previo a
         cualquier modificación de datos.
+
+        Mantiene un máximo de `max_backups` archivos de backup,
+        eliminando los más antiguos cuando se excede el límite.
         """
         if not self.db_path.exists():
             return  # No hay nada que respaldar todavía
@@ -192,9 +195,35 @@ class DatabaseManager:
         try:
             shutil.copy2(self.db_path, backup_path)
             logger.info("Backup creado: %s", backup_path.name)
+
+            # Limpiar backups antiguos (mantener solo los más recientes)
+            self._limpiar_backups_antiguos(max_backups)
         except Exception as e:
             # Un fallo de backup no debe interrumpir la operación principal
             logger.error("No se pudo crear el backup: %s", e)
+
+    def _limpiar_backups_antiguos(self, max_backups: int):
+        """
+        Elimina los backups más antiguos si hay más de `max_backups`.
+        Los backups se ordenan por fecha (timestamp en el nombre) y
+        se eliminan los más viejos primero.
+        """
+        try:
+            # Buscar todos los archivos de backup
+            backups = sorted(
+                BACKUP_DIR.glob("actas_historial_*.db"),
+                key=lambda p: p.stat().st_mtime,
+                reverse=True  # Más recientes primero
+            )
+
+            # Si hay más backups que el máximo permitido, eliminar los más viejos
+            if len(backups) > max_backups:
+                backups_a_eliminar = backups[max_backups:]  # Los más viejos
+                for backup in backups_a_eliminar:
+                    backup.unlink()
+                    logger.info("Backup antiguo eliminado: %s", backup.name)
+        except Exception as e:
+            logger.error("Error al limpiar backups antiguos: %s", e)
 
     def guardar_acta(
         self,
@@ -262,9 +291,19 @@ class DatabaseManager:
         Debe llamarse una vez por cada combinación (estado, tipo_solicitud)
         encontrada en la sesión. Estos datos alimentan el panel
         "Estadísticas por Estado" del dashboard.
+
+        Nota: Antes de insertar, elimina cualquier registro existente
+        para la misma sesión para evitar duplicados al regenerar actas.
         """
         with sqlite3.connect(self.db_path) as conn:
             cursor = conn.cursor()
+
+            # Eliminar estadísticas existentes para esta sesión (evita duplicados al regenerar)
+            cursor.execute('''
+                DELETE FROM estadisticas_sesion
+                WHERE numero_sesion = ?
+            ''', (numero_sesion,))
+
             fecha_registro = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
             cursor.execute('''
@@ -424,19 +463,24 @@ class DatabaseManager:
         contengan el término indicado (búsqueda parcial, sin distinción
         de mayúsculas/minúsculas gracias al LIKE de SQLite).
 
+        Los caracteres especiales de LIKE (% y _) se escapan para
+        evitar inyección de wildcards no intencional.
+
         Retorna lista de ActaRecord ordenada de más reciente a más antigua.
         """
         with sqlite3.connect(self.db_path) as conn:
             cursor = conn.cursor()
-            patron = f'%{termino}%'
+            # Escapar caracteres especiales de LIKE para evitar inyección de wildcards
+            patron_escapado = termino.replace("%", "\\%").replace("_", "\\_")
+            patron = f'%{patron_escapado}%'
             cursor.execute('''
                 SELECT id, numero_sesion, fecha_sesion, fecha_generacion,
                        total_aprobados, total_negados, estados_involucrados,
                        tipos_solicitud, archivo_generado, observaciones
                 FROM actas
-                WHERE numero_sesion  LIKE ?
-                   OR fecha_sesion   LIKE ?
-                   OR observaciones  LIKE ?
+                WHERE numero_sesion  LIKE ? ESCAPE '\\'
+                   OR fecha_sesion   LIKE ? ESCAPE '\\'
+                   OR observaciones  LIKE ? ESCAPE '\\'
                 ORDER BY fecha_generacion DESC
             ''', (patron, patron, patron))
 
@@ -460,10 +504,38 @@ class DatabaseManager:
                 conn.commit()
                 eliminado = cursor.rowcount > 0
                 if eliminado:
-                    logger.info("Acta eliminada - ID: %d", acta_id)
+                    logger.info(f"Acta con ID {acta_id} eliminada correctamente")
                 return eliminado
         except Exception as e:
-            logger.error("Error al eliminar acta ID %d: %s", acta_id, e)
+            logger.error(f"Error al eliminar acta con ID {acta_id}: {e}")
+            return False
+
+    def limpiar_base_datos(self) -> bool:
+        """
+        Elimina TODOS los registros de la base de datos (actas y estadísticas).
+        
+        Esta operación es irreversible y debe usarse con precaución.
+        Se recomienda hacer un backup antes de llamar este método.
+        
+        Retorna True si la limpieza fue exitosa, False en caso de error.
+        """
+        try:
+            # Hacer backup antes de limpiar
+            self.hacer_backup()
+            
+            with sqlite3.connect(self.db_path) as conn:
+                cursor = conn.cursor()
+                
+                # Eliminar todos los registros de las tablas
+                cursor.execute('DELETE FROM estadisticas_sesion')
+                cursor.execute('DELETE FROM actas')
+                
+                conn.commit()
+                
+                logger.warning("Base de datos limpiada completamente - todos los registros eliminados")
+                return True
+        except Exception as e:
+            logger.error(f"Error al limpiar la base de datos: {e}")
             return False
 
 

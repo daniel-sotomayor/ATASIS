@@ -145,7 +145,10 @@ class ActaDocumentGenerator:
         try:
             fecha_display = datetime.strptime(fecha_acta, "%Y-%m-%d").strftime("%d/%m/%Y")
             # Formato corto para el encabezado: "13/3/2026"
-            fecha_corta = datetime.strptime(fecha_acta, "%Y-%m-%d").strftime("%-d/%m/%Y")
+            # %d funciona en todas las plataformas, eliminamos leading zero manualmente
+            fecha_corta = datetime.strptime(fecha_acta, "%Y-%m-%d").strftime("%d/%m/%Y")
+            if fecha_corta.startswith("0"):
+                fecha_corta = fecha_corta[1:]
         except (ValueError, AttributeError):
             fecha_display = fecha_acta
             fecha_corta   = fecha_acta

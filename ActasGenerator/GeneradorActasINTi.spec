@@ -2,10 +2,10 @@
 
 
 a = Analysis(
-    ['c:\\Users\\usuario\\ATASIS\\ActasGenerator\\iniciar.py'],
-    pathex=['c:\\Users\\usuario\\ATASIS\\ActasGenerator\\src'],
+    ['C:\\Users\\usuario\\Documents\\Desarrollo\\ATASIS\\ActasGenerator\\iniciar.py'],
+    pathex=['C:\\Users\\usuario\\Documents\\Desarrollo\\ATASIS\\ActasGenerator\\src'],
     binaries=[],
-    datas=[('c:\\Users\\usuario\\ATASIS\\ActasGenerator\\src', 'src'), ('c:\\Users\\usuario\\ATASIS\\ActasGenerator\\assets', 'assets'), ('c:\\Users\\usuario\\ATASIS\\ActasGenerator\\config.json', '.')],
+    datas=[('C:\\Users\\usuario\\Documents\\Desarrollo\\ATASIS\\ActasGenerator\\src', 'src'), ('C:\\Users\\usuario\\Documents\\Desarrollo\\ATASIS\\ActasGenerator\\assets', 'assets'), ('C:\\Users\\usuario\\Documents\\Desarrollo\\ATASIS\\ActasGenerator\\config.json', '.')],
     hiddenimports=['config', 'database', 'excel_processor', 'document_generator', 'main_app', 'config_editor', 'ttkbootstrap', 'openpyxl', 'docx', 'pandas', 'PIL'],
     hookspath=[],
     hooksconfig={},
@@ -32,7 +32,7 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon=['c:\\Users\\usuario\\ATASIS\\ActasGenerator\\assets\\logo.ico'],
+    icon=['C:\\Users\\usuario\\Documents\\Desarrollo\\ATASIS\\ActasGenerator\\assets\\logo.ico'],
 )
 coll = COLLECT(
     exe,

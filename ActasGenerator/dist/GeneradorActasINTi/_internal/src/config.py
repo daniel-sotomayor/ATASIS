@@ -29,8 +29,12 @@ else:
 
 # Carpetas de trabajo
 ASSETS_DIR    = BASE_DIR / "assets"        # Recursos gráficos (logos, iconos)
-HISTORIAL_DIR = BASE_DIR / "historial"    # Base de datos SQLite
-REPORTS_DIR   = BASE_DIR / "reports"       # Reportes exportados
+
+# Usar AppData para historial y reports para tener permisos de escritura
+# cuando la app está instalada en Program Files
+APP_DATA_DIR = Path.home() / "AppData" / "Local" / "Generador de Actas INTi"
+HISTORIAL_DIR = APP_DATA_DIR / "historial"    # Base de datos SQLite
+REPORTS_DIR   = APP_DATA_DIR / "reports"       # Reportes exportados
 DB_PATH       = HISTORIAL_DIR / "actas_historial.db"
 
 # Las actas se guardan en Documentos/Actas de ATASIS para que el usuario
@@ -38,11 +42,23 @@ DB_PATH       = HISTORIAL_DIR / "actas_historial.db"
 OUTPUT_DIR = Path.home() / "Documents" / "Actas de ATASIS"
 
 # Ruta al archivo de configuración editable por el usuario
-CONFIG_JSON_PATH = BASE_DIR / "config.json"
+# Usar AppData para tener permisos de escritura cuando está instalado en Program Files
+CONFIG_JSON_PATH = APP_DATA_DIR / "config.json"
 
 # Crear las carpetas si no existen (se ejecuta al importar el módulo)
-for dir_path in [ASSETS_DIR, OUTPUT_DIR, HISTORIAL_DIR, REPORTS_DIR]:
+for dir_path in [ASSETS_DIR, OUTPUT_DIR, HISTORIAL_DIR, REPORTS_DIR, APP_DATA_DIR]:
     dir_path.mkdir(parents=True, exist_ok=True)
+
+# Copiar config.json por defecto de BASE_DIR a APP_DATA_DIR si no existe
+# Esto permite que la configuración por defecto se cargue la primera vez
+# y luego el usuario pueda modificarla en AppData (donde tiene permisos de escritura)
+DEFAULT_CONFIG_PATH = BASE_DIR / "config.json"
+if not CONFIG_JSON_PATH.exists() and DEFAULT_CONFIG_PATH.exists():
+    import shutil
+    try:
+        shutil.copy2(DEFAULT_CONFIG_PATH, CONFIG_JSON_PATH)
+    except Exception as e:
+        print(f"[config] Advertencia: no se pudo copiar config.json por defecto: {e}")
 
 # ---------------------------------------------------------------------------
 # LEER config.json EN TIEMPO DE EJECUCIÓN
