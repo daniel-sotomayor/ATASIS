@@ -1,0 +1,42 @@
+# Build directories
+build/
+dist/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Database and logs
+historial/
+*.log
+*.db
+
+# Temporary files
+zikw4LiC
+zixxkXrj
+*.tmp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Installer output
+instalador/*.exe
+
+# PyInstaller
+*.spec

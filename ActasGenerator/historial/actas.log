@@ -1,0 +1,236 @@
+2026-04-13 12:07:01,258 [INFO] DatabaseManager iniciado. BD: c:\Users\usuario\ATASIS\ActasGenerator\historial\actas_historial.db
+2026-04-13 12:07:01,667 [INFO] Backup creado: actas_historial_20260413_120701.db
+2026-04-13 12:07:01,671 [INFO] Acta guardada - sesion: TEST-001, aprobados: 100, negados: 5
+2026-04-13 12:07:01,679 [INFO] Acta eliminada - ID: 92
+2026-04-13 12:07:20,981 [INFO] DatabaseManager iniciado. BD: C:\Users\usuario\ATASIS\ActasGenerator\historial\actas_historial.db
+2026-04-13 12:09:18,724 [INFO] DatabaseManager iniciado. BD: C:\Users\usuario\ATASIS\ActasGenerator\historial\actas_historial.db
+2026-04-13 12:09:19,119 [INFO] Backup creado: actas_historial_20260413_120919.db
+2026-04-13 12:09:19,123 [INFO] Acta guardada - sesion: TEST-001, aprobados: 100, negados: 5
+2026-04-13 12:09:19,132 [INFO] Acta eliminada - ID: 93
+2026-04-13 12:11:15,489 [INFO] DatabaseManager iniciado. BD: C:\Users\usuario\ATASIS\ActasGenerator\historial\actas_historial.db
+2026-04-13 12:11:59,124 [INFO] Archivo cargado: Cargas atancha 2026.xlsx | Hoja: Base | Filas: 6631
+2026-04-13 12:12:10,517 [INFO] Backup creado: actas_historial_20260413_121210.db
+2026-04-13 12:12:10,519 [INFO] Acta guardada - sesion: ORD 1682-26, aprobados: 110, negados: 0
+2026-04-13 12:12:10,611 [INFO] Backup creado: actas_historial_20260413_121210.db
+2026-04-13 12:12:10,614 [INFO] Acta guardada - sesion: ORD 1684-26, aprobados: 462, negados: 0
+2026-04-13 12:12:10,723 [INFO] Backup creado: actas_historial_20260413_121210.db
+2026-04-13 12:12:10,726 [INFO] Acta guardada - sesion: ORD 1685-26, aprobados: 512, negados: 1
+2026-04-13 12:12:10,842 [INFO] Backup creado: actas_historial_20260413_121210.db
+2026-04-13 12:12:10,845 [INFO] Acta guardada - sesion: ORD 1686-26, aprobados: 498, negados: 1
+2026-04-13 12:12:10,971 [INFO] Backup creado: actas_historial_20260413_121210.db
+2026-04-13 12:12:10,974 [INFO] Acta guardada - sesion: ORD 1687-26, aprobados: 541, negados: 1
+2026-04-13 12:12:11,110 [INFO] Backup creado: actas_historial_20260413_121211.db
+2026-04-13 12:12:11,113 [INFO] Acta guardada - sesion: ORD 1688-26, aprobados: 1, negados: 155
+2026-04-13 12:12:11,275 [INFO] Backup creado: actas_historial_20260413_121211.db
+2026-04-13 12:12:11,278 [INFO] Acta guardada - sesion: ORD 1689-26, aprobados: 107, negados: 1
+2026-04-13 12:12:11,416 [INFO] Backup creado: actas_historial_20260413_121211.db
+2026-04-13 12:12:11,419 [INFO] Acta guardada - sesion: ORD 1690-26, aprobados: 129, negados: 1
+2026-04-13 12:12:11,549 [INFO] Backup creado: actas_historial_20260413_121211.db
+2026-04-13 12:12:11,553 [INFO] Acta guardada - sesion: ORD 1691-26, aprobados: 1, negados: 166
+2026-04-13 12:12:11,698 [INFO] Backup creado: actas_historial_20260413_121211.db
+2026-04-13 12:12:11,701 [INFO] Acta guardada - sesion: ORD 1694-26, aprobados: 491, negados: 0
+2026-04-13 12:12:11,813 [INFO] Backup creado: actas_historial_20260413_121211.db
+2026-04-13 12:12:11,816 [INFO] Acta guardada - sesion: ORD 1693-26, aprobados: 518, negados: 2
+2026-04-13 12:12:11,934 [INFO] Backup creado: actas_historial_20260413_121211.db
+2026-04-13 12:12:11,937 [INFO] Acta guardada - sesion: ORD 1695-26, aprobados: 576, negados: 2
+2026-04-13 12:12:12,062 [INFO] Backup creado: actas_historial_20260413_121212.db
+2026-04-13 12:12:12,065 [INFO] Acta guardada - sesion: ORD 1696-26, aprobados: 657, negados: 0
+2026-04-13 12:12:12,187 [INFO] Backup creado: actas_historial_20260413_121212.db
+2026-04-13 12:12:12,190 [INFO] Acta guardada - sesion: ORD 1692-26, aprobados: 513, negados: 0
+2026-04-13 12:12:12,287 [INFO] Backup creado: actas_historial_20260413_121212.db
+2026-04-13 12:12:12,290 [INFO] Acta guardada - sesion: ORD 1697-26, aprobados: 592, negados: 0
+2026-04-13 12:12:12,407 [INFO] Backup creado: actas_historial_20260413_121212.db
+2026-04-13 12:12:12,410 [INFO] Acta guardada - sesion: ORD 1683-26, aprobados: 591, negados: 0
+2026-04-13 12:13:56,817 [INFO] DatabaseManager iniciado. BD: C:\Users\usuario\ATASIS\ActasGenerator\historial\actas_historial.db
+2026-04-13 12:22:25,959 [INFO] DatabaseManager iniciado. BD: c:\Users\usuario\ATASIS\ActasGenerator\historial\actas_historial.db
+2026-04-13 12:27:29,482 [INFO] DatabaseManager iniciado. BD: c:\Users\usuario\ATASIS\ActasGenerator\historial\actas_historial.db
+2026-04-13 12:27:29,904 [INFO] Backup creado: actas_historial_20260413_122729.db
+2026-04-13 12:27:29,908 [INFO] Acta guardada - sesion: TEST-001, aprobados: 100, negados: 5
+2026-04-13 12:27:29,915 [INFO] Acta eliminada - ID: 110
+2026-04-13 12:30:06,878 [INFO] DatabaseManager iniciado. BD: c:\Users\usuario\ATASIS\ActasGenerator\historial\actas_historial.db
+2026-04-13 12:32:02,196 [INFO] Archivo cargado: Cargas atancha 2026.xlsx | Hoja: Base | Filas: 6631
+2026-04-13 12:32:11,479 [INFO] Backup creado: actas_historial_20260413_123211.db
+2026-04-13 12:32:11,526 [INFO] Acta guardada - sesion: ORD 1682-26, aprobados: 110, negados: 0
+2026-04-13 12:32:11,618 [INFO] Backup creado: actas_historial_20260413_123211.db
+2026-04-13 12:32:11,621 [INFO] Acta guardada - sesion: ORD 1683-26, aprobados: 591, negados: 0
+2026-04-13 12:32:11,732 [INFO] Backup creado: actas_historial_20260413_123211.db
+2026-04-13 12:32:11,735 [INFO] Acta guardada - sesion: ORD 1684-26, aprobados: 462, negados: 0
+2026-04-13 12:32:11,842 [INFO] Backup creado: actas_historial_20260413_123211.db
+2026-04-13 12:32:11,845 [INFO] Acta guardada - sesion: ORD 1685-26, aprobados: 512, negados: 1
+2026-04-13 12:32:11,962 [INFO] Backup creado: actas_historial_20260413_123211.db
+2026-04-13 12:32:11,964 [INFO] Acta guardada - sesion: ORD 1686-26, aprobados: 498, negados: 1
+2026-04-13 12:32:12,090 [INFO] Backup creado: actas_historial_20260413_123212.db
+2026-04-13 12:32:12,093 [INFO] Acta guardada - sesion: ORD 1687-26, aprobados: 541, negados: 1
+2026-04-13 12:32:12,230 [INFO] Backup creado: actas_historial_20260413_123212.db
+2026-04-13 12:32:12,233 [INFO] Acta guardada - sesion: ORD 1688-26, aprobados: 1, negados: 155
+2026-04-13 12:32:12,393 [INFO] Backup creado: actas_historial_20260413_123212.db
+2026-04-13 12:32:12,396 [INFO] Acta guardada - sesion: ORD 1689-26, aprobados: 107, negados: 1
+2026-04-13 12:32:12,535 [INFO] Backup creado: actas_historial_20260413_123212.db
+2026-04-13 12:32:12,538 [INFO] Acta guardada - sesion: ORD 1690-26, aprobados: 129, negados: 1
+2026-04-13 12:32:12,670 [INFO] Backup creado: actas_historial_20260413_123212.db
+2026-04-13 12:32:12,672 [INFO] Acta guardada - sesion: ORD 1691-26, aprobados: 1, negados: 166
+2026-04-13 12:32:12,817 [INFO] Backup creado: actas_historial_20260413_123212.db
+2026-04-13 12:32:12,820 [INFO] Acta guardada - sesion: ORD 1694-26, aprobados: 491, negados: 0
+2026-04-13 12:32:12,934 [INFO] Backup creado: actas_historial_20260413_123212.db
+2026-04-13 12:32:12,937 [INFO] Acta guardada - sesion: ORD 1693-26, aprobados: 518, negados: 2
+2026-04-13 12:32:13,056 [INFO] Backup creado: actas_historial_20260413_123213.db
+2026-04-13 12:32:13,059 [INFO] Acta guardada - sesion: ORD 1695-26, aprobados: 576, negados: 2
+2026-04-13 12:32:13,186 [INFO] Backup creado: actas_historial_20260413_123213.db
+2026-04-13 12:32:13,189 [INFO] Acta guardada - sesion: ORD 1696-26, aprobados: 657, negados: 0
+2026-04-13 12:32:13,311 [INFO] Backup creado: actas_historial_20260413_123213.db
+2026-04-13 12:32:13,314 [INFO] Acta guardada - sesion: ORD 1692-26, aprobados: 513, negados: 0
+2026-04-13 12:32:13,411 [INFO] Backup creado: actas_historial_20260413_123213.db
+2026-04-13 12:32:13,414 [INFO] Acta guardada - sesion: ORD 1697-26, aprobados: 592, negados: 0
+2026-04-13 12:42:01,236 [INFO] DatabaseManager iniciado. BD: C:\Users\usuario\ATASIS\ActasGenerator\historial\actas_historial.db
+2026-04-13 12:42:10,747 [INFO] Archivo cargado: Cargas atancha 2026.xlsx | Hoja: Base | Filas: 6631
+2026-04-13 12:42:18,033 [INFO] Backup creado: actas_historial_20260413_124218.db
+2026-04-13 12:42:18,037 [INFO] Acta guardada - sesion: ORD 1682-26, aprobados: 110, negados: 0
+2026-04-13 12:42:18,128 [INFO] Backup creado: actas_historial_20260413_124218.db
+2026-04-13 12:42:18,131 [INFO] Acta guardada - sesion: ORD 1683-26, aprobados: 591, negados: 0
+2026-04-13 12:42:18,242 [INFO] Backup creado: actas_historial_20260413_124218.db
+2026-04-13 12:42:18,247 [INFO] Acta guardada - sesion: ORD 1684-26, aprobados: 462, negados: 0
+2026-04-13 12:42:18,354 [INFO] Backup creado: actas_historial_20260413_124218.db
+2026-04-13 12:42:18,357 [INFO] Acta guardada - sesion: ORD 1685-26, aprobados: 512, negados: 1
+2026-04-13 12:42:18,471 [INFO] Backup creado: actas_historial_20260413_124218.db
+2026-04-13 12:42:18,474 [INFO] Acta guardada - sesion: ORD 1686-26, aprobados: 498, negados: 1
+2026-04-13 12:42:18,599 [INFO] Backup creado: actas_historial_20260413_124218.db
+2026-04-13 12:42:18,602 [INFO] Acta guardada - sesion: ORD 1687-26, aprobados: 541, negados: 1
+2026-04-13 12:42:18,742 [INFO] Backup creado: actas_historial_20260413_124218.db
+2026-04-13 12:42:18,745 [INFO] Acta guardada - sesion: ORD 1688-26, aprobados: 1, negados: 155
+2026-04-13 12:42:18,906 [INFO] Backup creado: actas_historial_20260413_124218.db
+2026-04-13 12:42:18,909 [INFO] Acta guardada - sesion: ORD 1689-26, aprobados: 107, negados: 1
+2026-04-13 12:42:19,047 [INFO] Backup creado: actas_historial_20260413_124219.db
+2026-04-13 12:42:19,050 [INFO] Acta guardada - sesion: ORD 1690-26, aprobados: 129, negados: 1
+2026-04-13 12:42:19,190 [INFO] Backup creado: actas_historial_20260413_124219.db
+2026-04-13 12:42:19,193 [INFO] Acta guardada - sesion: ORD 1691-26, aprobados: 1, negados: 166
+2026-04-13 12:42:19,340 [INFO] Backup creado: actas_historial_20260413_124219.db
+2026-04-13 12:42:19,343 [INFO] Acta guardada - sesion: ORD 1694-26, aprobados: 491, negados: 0
+2026-04-13 12:42:19,455 [INFO] Backup creado: actas_historial_20260413_124219.db
+2026-04-13 12:42:19,458 [INFO] Acta guardada - sesion: ORD 1693-26, aprobados: 518, negados: 2
+2026-04-13 12:42:19,576 [INFO] Backup creado: actas_historial_20260413_124219.db
+2026-04-13 12:42:19,579 [INFO] Acta guardada - sesion: ORD 1695-26, aprobados: 576, negados: 2
+2026-04-13 12:42:19,709 [INFO] Backup creado: actas_historial_20260413_124219.db
+2026-04-13 12:42:19,712 [INFO] Acta guardada - sesion: ORD 1696-26, aprobados: 657, negados: 0
+2026-04-13 12:42:19,837 [INFO] Backup creado: actas_historial_20260413_124219.db
+2026-04-13 12:42:19,840 [INFO] Acta guardada - sesion: ORD 1692-26, aprobados: 513, negados: 0
+2026-04-13 12:42:19,937 [INFO] Backup creado: actas_historial_20260413_124219.db
+2026-04-13 12:42:19,940 [INFO] Acta guardada - sesion: ORD 1697-26, aprobados: 592, negados: 0
+2026-04-13 12:42:50,046 [INFO] Backup creado: actas_historial_20260413_124250.db
+2026-04-13 12:42:50,049 [INFO] Acta guardada - sesion: ORD 1682-26, aprobados: 110, negados: 0
+2026-04-13 12:42:50,139 [INFO] Backup creado: actas_historial_20260413_124250.db
+2026-04-13 12:42:50,143 [INFO] Acta guardada - sesion: ORD 1683-26, aprobados: 591, negados: 0
+2026-04-13 12:42:50,254 [INFO] Backup creado: actas_historial_20260413_124250.db
+2026-04-13 12:42:50,259 [INFO] Acta guardada - sesion: ORD 1684-26, aprobados: 462, negados: 0
+2026-04-13 12:42:50,368 [INFO] Backup creado: actas_historial_20260413_124250.db
+2026-04-13 12:42:50,371 [INFO] Acta guardada - sesion: ORD 1685-26, aprobados: 512, negados: 1
+2026-04-13 12:42:50,486 [INFO] Backup creado: actas_historial_20260413_124250.db
+2026-04-13 12:42:50,489 [INFO] Acta guardada - sesion: ORD 1686-26, aprobados: 498, negados: 1
+2026-04-13 12:42:50,614 [INFO] Backup creado: actas_historial_20260413_124250.db
+2026-04-13 12:42:50,617 [INFO] Acta guardada - sesion: ORD 1687-26, aprobados: 541, negados: 1
+2026-04-13 12:42:50,756 [INFO] Backup creado: actas_historial_20260413_124250.db
+2026-04-13 12:42:50,759 [INFO] Acta guardada - sesion: ORD 1688-26, aprobados: 1, negados: 155
+2026-04-13 12:42:50,921 [INFO] Backup creado: actas_historial_20260413_124250.db
+2026-04-13 12:42:50,924 [INFO] Acta guardada - sesion: ORD 1689-26, aprobados: 107, negados: 1
+2026-04-13 12:42:51,061 [INFO] Backup creado: actas_historial_20260413_124251.db
+2026-04-13 12:42:51,064 [INFO] Acta guardada - sesion: ORD 1690-26, aprobados: 129, negados: 1
+2026-04-13 12:42:51,195 [INFO] Backup creado: actas_historial_20260413_124251.db
+2026-04-13 12:42:51,198 [INFO] Acta guardada - sesion: ORD 1691-26, aprobados: 1, negados: 166
+2026-04-13 12:42:51,345 [INFO] Backup creado: actas_historial_20260413_124251.db
+2026-04-13 12:42:51,348 [INFO] Acta guardada - sesion: ORD 1694-26, aprobados: 491, negados: 0
+2026-04-13 12:42:51,460 [INFO] Backup creado: actas_historial_20260413_124251.db
+2026-04-13 12:42:51,463 [INFO] Acta guardada - sesion: ORD 1693-26, aprobados: 518, negados: 2
+2026-04-13 12:42:51,581 [INFO] Backup creado: actas_historial_20260413_124251.db
+2026-04-13 12:42:51,585 [INFO] Acta guardada - sesion: ORD 1695-26, aprobados: 576, negados: 2
+2026-04-13 12:42:51,710 [INFO] Backup creado: actas_historial_20260413_124251.db
+2026-04-13 12:42:51,713 [INFO] Acta guardada - sesion: ORD 1696-26, aprobados: 657, negados: 0
+2026-04-13 12:42:51,835 [INFO] Backup creado: actas_historial_20260413_124251.db
+2026-04-13 12:42:51,838 [INFO] Acta guardada - sesion: ORD 1692-26, aprobados: 513, negados: 0
+2026-04-13 12:42:51,934 [INFO] Backup creado: actas_historial_20260413_124251.db
+2026-04-13 12:42:51,938 [INFO] Acta guardada - sesion: ORD 1697-26, aprobados: 592, negados: 0
+2026-04-13 12:45:52,684 [INFO] DatabaseManager iniciado. BD: c:\Users\usuario\ATASIS\ActasGenerator\historial\actas_historial.db
+2026-04-13 12:45:53,078 [INFO] Backup creado: actas_historial_20260413_124553.db
+2026-04-13 12:45:53,082 [INFO] Acta guardada - sesion: TEST-001, aprobados: 100, negados: 5
+2026-04-13 12:45:53,089 [INFO] Acta eliminada - ID: 159
+2026-04-13 12:46:00,600 [INFO] DatabaseManager iniciado. BD: C:\Users\usuario\ATASIS\ActasGenerator\historial\actas_historial.db
+2026-04-13 12:46:29,989 [INFO] Archivo cargado: Cargas atancha 2026.xlsx | Hoja: Base | Filas: 6631
+2026-04-13 12:46:36,302 [INFO] Backup creado: actas_historial_20260413_124636.db
+2026-04-13 12:46:36,304 [INFO] Acta guardada - sesion: ORD 1682-26, aprobados: 110, negados: 0
+2026-04-13 12:46:36,410 [INFO] Backup creado: actas_historial_20260413_124636.db
+2026-04-13 12:46:36,413 [INFO] Acta guardada - sesion: ORD 1683-26, aprobados: 591, negados: 0
+2026-04-13 12:46:36,540 [INFO] Backup creado: actas_historial_20260413_124636.db
+2026-04-13 12:46:36,544 [INFO] Acta guardada - sesion: ORD 1684-26, aprobados: 462, negados: 0
+2026-04-13 12:46:36,670 [INFO] Backup creado: actas_historial_20260413_124636.db
+2026-04-13 12:46:36,673 [INFO] Acta guardada - sesion: ORD 1685-26, aprobados: 512, negados: 1
+2026-04-13 12:46:36,803 [INFO] Backup creado: actas_historial_20260413_124636.db
+2026-04-13 12:46:36,807 [INFO] Acta guardada - sesion: ORD 1686-26, aprobados: 498, negados: 1
+2026-04-13 12:46:36,951 [INFO] Backup creado: actas_historial_20260413_124636.db
+2026-04-13 12:46:36,956 [INFO] Acta guardada - sesion: ORD 1687-26, aprobados: 541, negados: 1
+2026-04-13 12:46:37,118 [INFO] Backup creado: actas_historial_20260413_124637.db
+2026-04-13 12:46:37,122 [INFO] Acta guardada - sesion: ORD 1688-26, aprobados: 1, negados: 155
+2026-04-13 12:46:37,299 [INFO] Backup creado: actas_historial_20260413_124637.db
+2026-04-13 12:46:37,303 [INFO] Acta guardada - sesion: ORD 1689-26, aprobados: 107, negados: 1
+2026-04-13 12:46:37,462 [INFO] Backup creado: actas_historial_20260413_124637.db
+2026-04-13 12:46:37,465 [INFO] Acta guardada - sesion: ORD 1690-26, aprobados: 129, negados: 1
+2026-04-13 12:46:37,616 [INFO] Backup creado: actas_historial_20260413_124637.db
+2026-04-13 12:46:37,619 [INFO] Acta guardada - sesion: ORD 1691-26, aprobados: 1, negados: 166
+2026-04-13 12:46:37,778 [INFO] Backup creado: actas_historial_20260413_124637.db
+2026-04-13 12:46:37,781 [INFO] Acta guardada - sesion: ORD 1694-26, aprobados: 491, negados: 0
+2026-04-13 12:46:37,929 [INFO] Backup creado: actas_historial_20260413_124637.db
+2026-04-13 12:46:37,932 [INFO] Acta guardada - sesion: ORD 1693-26, aprobados: 518, negados: 2
+2026-04-13 12:46:38,088 [INFO] Backup creado: actas_historial_20260413_124638.db
+2026-04-13 12:46:38,092 [INFO] Acta guardada - sesion: ORD 1695-26, aprobados: 576, negados: 2
+2026-04-13 12:46:38,238 [INFO] Backup creado: actas_historial_20260413_124638.db
+2026-04-13 12:46:38,242 [INFO] Acta guardada - sesion: ORD 1696-26, aprobados: 657, negados: 0
+2026-04-13 12:46:38,377 [INFO] Backup creado: actas_historial_20260413_124638.db
+2026-04-13 12:46:38,380 [INFO] Acta guardada - sesion: ORD 1692-26, aprobados: 513, negados: 0
+2026-04-13 12:46:38,492 [INFO] Backup creado: actas_historial_20260413_124638.db
+2026-04-13 12:46:38,496 [INFO] Acta guardada - sesion: ORD 1697-26, aprobados: 592, negados: 0
+2026-04-13 12:52:25,095 [INFO] DatabaseManager iniciado. BD: c:\Users\usuario\ATASIS\ActasGenerator\historial\actas_historial.db
+2026-04-13 12:52:25,501 [INFO] Backup creado: actas_historial_20260413_125225.db
+2026-04-13 12:52:25,504 [INFO] Acta guardada - sesion: TEST-001, aprobados: 100, negados: 5
+2026-04-13 12:52:25,512 [INFO] Acta eliminada - ID: 176
+2026-04-13 12:56:43,051 [INFO] DatabaseManager iniciado. BD: c:\Users\usuario\ATASIS\ActasGenerator\historial\actas_historial.db
+2026-04-13 12:56:43,458 [INFO] Backup creado: actas_historial_20260413_125643.db
+2026-04-13 12:56:43,462 [INFO] Acta guardada - sesion: TEST-001, aprobados: 100, negados: 5
+2026-04-13 12:56:43,470 [INFO] Acta eliminada - ID: 177
+2026-04-13 12:59:06,567 [INFO] DatabaseManager iniciado. BD: C:\Users\usuario\ATASIS\ActasGenerator\historial\actas_historial.db
+2026-04-13 12:59:13,239 [INFO] Archivo cargado: Cargas atancha 2026.xlsx | Hoja: Base | Filas: 6631
+2026-04-13 12:59:20,333 [INFO] Backup creado: actas_historial_20260413_125920.db
+2026-04-13 12:59:20,335 [INFO] Acta guardada - sesion: ORD 1682-26, aprobados: 110, negados: 0
+2026-04-13 12:59:20,455 [INFO] Backup creado: actas_historial_20260413_125920.db
+2026-04-13 12:59:20,458 [INFO] Acta guardada - sesion: ORD 1683-26, aprobados: 591, negados: 0
+2026-04-13 12:59:20,598 [INFO] Backup creado: actas_historial_20260413_125920.db
+2026-04-13 12:59:20,601 [INFO] Acta guardada - sesion: ORD 1684-26, aprobados: 462, negados: 0
+2026-04-13 12:59:20,738 [INFO] Backup creado: actas_historial_20260413_125920.db
+2026-04-13 12:59:20,741 [INFO] Acta guardada - sesion: ORD 1685-26, aprobados: 512, negados: 1
+2026-04-13 12:59:20,884 [INFO] Backup creado: actas_historial_20260413_125920.db
+2026-04-13 12:59:20,888 [INFO] Acta guardada - sesion: ORD 1686-26, aprobados: 498, negados: 1
+2026-04-13 12:59:21,045 [INFO] Backup creado: actas_historial_20260413_125921.db
+2026-04-13 12:59:21,048 [INFO] Acta guardada - sesion: ORD 1687-26, aprobados: 541, negados: 1
+2026-04-13 12:59:21,219 [INFO] Backup creado: actas_historial_20260413_125921.db
+2026-04-13 12:59:21,223 [INFO] Acta guardada - sesion: ORD 1688-26, aprobados: 1, negados: 155
+2026-04-13 12:59:21,418 [INFO] Backup creado: actas_historial_20260413_125921.db
+2026-04-13 12:59:21,421 [INFO] Acta guardada - sesion: ORD 1689-26, aprobados: 107, negados: 1
+2026-04-13 12:59:21,591 [INFO] Backup creado: actas_historial_20260413_125921.db
+2026-04-13 12:59:21,595 [INFO] Acta guardada - sesion: ORD 1690-26, aprobados: 129, negados: 1
+2026-04-13 12:59:21,762 [INFO] Backup creado: actas_historial_20260413_125921.db
+2026-04-13 12:59:21,765 [INFO] Acta guardada - sesion: ORD 1691-26, aprobados: 1, negados: 166
+2026-04-13 12:59:21,936 [INFO] Backup creado: actas_historial_20260413_125921.db
+2026-04-13 12:59:21,939 [INFO] Acta guardada - sesion: ORD 1694-26, aprobados: 491, negados: 0
+2026-04-13 12:59:22,081 [INFO] Backup creado: actas_historial_20260413_125922.db
+2026-04-13 12:59:22,084 [INFO] Acta guardada - sesion: ORD 1693-26, aprobados: 518, negados: 2
+2026-04-13 12:59:22,229 [INFO] Backup creado: actas_historial_20260413_125922.db
+2026-04-13 12:59:22,232 [INFO] Acta guardada - sesion: ORD 1695-26, aprobados: 576, negados: 2
+2026-04-13 12:59:22,391 [INFO] Backup creado: actas_historial_20260413_125922.db
+2026-04-13 12:59:22,394 [INFO] Acta guardada - sesion: ORD 1696-26, aprobados: 657, negados: 0
+2026-04-13 12:59:22,544 [INFO] Backup creado: actas_historial_20260413_125922.db
+2026-04-13 12:59:22,548 [INFO] Acta guardada - sesion: ORD 1692-26, aprobados: 513, negados: 0
+2026-04-13 12:59:22,675 [INFO] Backup creado: actas_historial_20260413_125922.db
+2026-04-13 12:59:22,678 [INFO] Acta guardada - sesion: ORD 1697-26, aprobados: 592, negados: 0
+2026-04-13 13:00:44,257 [INFO] DatabaseManager iniciado. BD: c:\Users\usuario\ATASIS\ActasGenerator\historial\actas_historial.db
+2026-04-13 13:01:09,786 [INFO] DatabaseManager iniciado. BD: C:\Users\usuario\ATASIS\ActasGenerator\historial\actas_historial.db
+2026-04-13 13:13:49,588 [INFO] DatabaseManager iniciado. BD: C:\Users\usuario\ATASIS\ActasGenerator\historial\actas_historial.db
+2026-04-13 13:13:56,154 [INFO] DatabaseManager iniciado. BD: c:\Users\usuario\ATASIS\ActasGenerator\historial\actas_historial.db
+2026-04-13 13:16:49,465 [INFO] DatabaseManager iniciado. BD: C:\Users\usuario\ATASIS\ActasGenerator\historial\actas_historial.db
+2026-04-13 13:26:55,904 [INFO] DatabaseManager iniciado. BD: C:\Users\usuario\ATASIS\ActasGenerator\historial\actas_historial.db
+2026-04-13 13:45:58,142 [INFO] DatabaseManager iniciado. BD: C:\Users\usuario\ATASIS\ActasGenerator\historial\actas_historial.db
