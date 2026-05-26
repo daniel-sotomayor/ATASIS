@@ -1,0 +1,40 @@
+GENERADOR DE ACTAS INTi - Version 1.0.0
+=========================================
+
+✅ EJECUTABLE CREADO CON EXITO
+
+📋 CAMBIOS IMPLEMENTADOS:
+- El encabezado con "ACTA DE DIRECTORIO" ahora aparece en TODAS las paginas
+- Logo INTi en el encabezado
+- Informacion de sesion (Acta Nro., Sesion Nro., Fecha)
+- Encabezado profesional en formato oficial
+
+📁 ESTRUCTURA:
+- GeneradorActasINTi.exe      (Ejecutable principal)
+- Iniciar.bat                 (Script para iniciar facilmente)
+- config.json                (Configuracion)
+- assets/                    (Logo INTi)
+- historial/                 (Base de datos)
+- output_actas/              (Actas generadas)
+- reports/                   (Reportes)
+
+🚀 COMO USAR:
+1. Ejecute "Iniciar.bat"
+2. Cargue el archivo Excel "Cargas atancha 2026.xlsx"
+3. Procese los datos
+4. Seleccione las sesiones
+5. Haga clic en "Generar Actas Seleccionadas"
+
+📄 VERIFICACION DEL CAMBIO:
+- Abra una acta generada en Microsoft Word
+- El encabezado debe aparecer en TODAS las paginas
+
+🔧 REQUISITOS:
+- Windows 10 o 11 (64 bits)
+- Microsoft Word para abrir las actas
+- No requiere Python instalado
+
+---
+Version: 1.0.0 (con encabezado en todas las paginas)
+Fecha: 21/05/2026
+Desarrollado para: INTi - Instituto Nacional de Tierras

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Usuario - Generador de Actas INTi</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1a5f7a;
+            border-bottom: 3px solid #57c5b6;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #159895;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #2c3e50;
+            margin-top: 20px;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .info {
+            background-color: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .step {
+            background-color: #f8f9fa;
+            border-left: 4px solid #1a5f7a;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        ul, ol {
+            margin: 15px 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        code {
+            background-color: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .toc {
+            background-color: #e9ecef;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc li {
+            margin: 8px 0;
+        }
+        .toc a {
+            color: #1a5f7a;
+            text-decoration: none;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Manual de Usuario - Generador de Actas INTi</h1>
+        <p><strong>Versión:</strong> 1.0.0</p>
+        <p><strong>Desarrollado por:</strong> Danielo Sotomayor</p>
+        <p><strong>Propiedad:</strong> DTSR C.A.</p>
+
+        <div class="toc">
+            <h2>Tabla de Contenidos</h2>
+            <ul>
+                <li><a href="#introduccion">1. Introducción</a></li>
+                <li><a href="#requisitos">2. Requisitos del Sistema</a></li>
+                <li><a href="#instalacion">3. Instalación</a></li>
+                <li><a href="#configuracion">4. Configuración</a></li>
+                <li><a href="#uso">5. Uso de la Aplicación</a></li>
+                <li><a href="#dashboard">6. Dashboard</a></li>
+                <li><a href="#generar">7. Generar Actas</a></li>
+                <li><a href="#historial">8. Historial</a></li>
+                <li><a href="#solucion">9. Solución de Problemas</a></li>
+            </ul>
+        </div>
+
+        <h2 id="introduccion">1. Introducción</h2>
+        <p>El <strong>Generador de Actas INTi</strong> es una aplicación diseñada para facilitar la generación de actas oficiales del Instituto Nacional de Tierras (INTi). Esta herramienta permite procesar archivos Excel con puntos de cuenta y generar automáticamente documentos Word formateados según los estándares del INTi.</p>
+
+        <div class="warning">
+            <strong>Importante:</strong> Este software es propiedad de DTSR C.A. y fue desarrollado por Danielo Sotomayor como un apoyo prestado al INTi. No debe ser vendido, plagiado o distribuido comercialmente sin autorización expresa.
+        </div>
+
+        <h2 id="requisitos">2. Requisitos del Sistema</h2>
+        <ul>
+            <li>Sistema operativo: Windows 10 o superior</li>
+            <li>Memoria RAM: Mínimo 4 GB (recomendado 8 GB)</li>
+            <li>Espacio en disco: 500 MB para instalación</li>
+            <li>Microsoft Excel (para abrir archivos de origen)</li>
+            <li>Microsoft Word (para abrir las actas generadas)</li>
+        </ul>
+
+        <h2 id="instalacion">3. Instalación</h2>
+        <div class="step">
+            <ol>
+                <li>Ejecute el archivo <code>Instalador_GeneradorActasINTi_v1.0.0.exe</code></li>
+                <li>Lea y acepte el acuerdo de licencia</li>
+                <li>Seleccione la carpeta de instalación (por defecto: C:\Program Files\Generador de Actas INTi\)</li>
+                <li>Elija si desea crear accesos directos en el Escritorio y Menú Inicio</li>
+                <li>Complete el asistente de instalación</li>
+                <li>Ejecute la aplicación desde el acceso directo creado</li>
+            </ol>
+        </div>
+
+        <div class="info">
+            <strong>Nota:</strong> La aplicación creará automáticamente las carpetas necesarias en <code>Documentos\Actas de ATASIS</code> y <code>AppData\Local\Generador de Actas INTi</code> para almacenar las actas generadas y la base de datos.
+        </div>
+
+        <h2 id="configuracion">4. Configuración</h2>
+        <p>La aplicación viene preconfigurada con los datos del directorio del INTi. No es necesario configurarla a menos que desee cambiar:</p>
+        <ul>
+            <li>Nombre del Presidente</li>
+            <li>Nombres de los Directores Principales</li>
+            <li>Nombres de los Directores Suplentes</li>
+            <li>Nombre de la Secretaria</li>
+            <li>Horas de inicio y fin de las sesiones</li>
+            <li>Número de reunión</li>
+        </ul>
+
+        <div class="step">
+            <p><strong>Para cambiar la configuración:</strong></p>
+            <ol>
+                <li>Abra la aplicación</li>
+                <li>Vaya al menú <strong>Archivo → Configuración</strong></li>
+                <li>Modifique los campos deseados</li>
+                <li>Haga clic en <strong>Guardar</strong></li>
+                <li>Los cambios se aplicarán inmediatamente</li>
+            </ol>
+        </div>
+
+        <h2 id="uso">5. Uso de la Aplicación</h2>
+        <p>La aplicación tiene tres pestañas principales:</p>
+        <ul>
+            <li><strong>Dashboard:</strong> Muestra estadísticas y actas recientes</li>
+            <li><strong>Generar Actas:</strong> Para cargar Excel y generar documentos</li>
+            <li><strong>Historial:</strong> Registro de todas las actas generadas con búsqueda</li>
+        </ul>
+
+        <h2 id="dashboard">6. Dashboard</h2>
+        <p>El Dashboard muestra:</p>
+        <ul>
+            <li><strong>Total de Actas:</strong> Cantidad de actas generadas</li>
+            <li><strong>Total Aprobados:</strong> Suma de puntos aprobados en todas las actas</li>
+            <li><strong>Total Negados:</strong> Suma de puntos negados en todas las actas</li>
+            <li><strong>Total Sesiones:</strong> Número de sesiones procesadas</li>
+        </ul>
+
+        <p>También muestra tablas con:</p>
+        <ul>
+            <li>Estadísticas por Estado</li>
+            <li>Últimas 10 actas generadas</li>
+        </ul>
+
+        <h2 id="generar">7. Generar Actas</h2>
+        <div class="step">
+            <p><strong>Pasos para generar actas:</strong></p>
+            <ol>
+                <li>Vaya a la pestaña <strong>Generar Actas</strong></li>
+                <li>Haga clic en <strong>Cargar Excel</strong> y seleccione su archivo</li>
+                <li>El archivo debe tener las columnas: <code>Id punto de cuenta</code>, <code>Tipo de solicitud</code>, <code>Estado</code>, <code>Decisión</code>, <code>Sesión</code>, <code>Fecha</code></li>
+                <li>La aplicación mostrará las sesiones detectadas en el Excel</li>
+                <li>Seleccione las sesiones que desea generar (casillas de verificación)</li>
+                <li>Haga clic en <strong>Generar Actas Seleccionadas</strong></li>
+                <li>La barra de progreso mostrará el avance</li>
+                <li>Las actas se guardarán en <code>Documentos\Actas de ATASIS</code></li>
+            </ol>
+        </div>
+
+        <div class="warning">
+            <strong>Advertencia:</strong> Las sesiones que ya tienen acta generada aparecerán en verde en la lista. Si regenera una sesión, se sobrescribirá el acta anterior.
+        </div>
+
+        <h2 id="historial">8. Historial</h2>
+        <p>La pestaña Historial permite:</p>
+        <ul>
+            <li>Ver todas las actas generadas</li>
+            <li>Buscar por número de sesión, fecha u observaciones</li>
+            <li>Abrir el documento Word generado</li>
+            <li>Ver detalles de cada acta</li>
+            <li>Exportar el historial a Excel</li>
+        </ul>
+
+        <div class="step">
+            <p><strong>Para buscar actas:</strong></p>
+            <ol>
+                <li>Vaya a la pestaña <strong>Historial</strong></li>
+                <li>Escriba el término de búsqueda en el campo de texto</li>
+                <li>La tabla se filtrará automáticamente</li>
+            </ol>
+        </div>
+
+        <h2 id="solucion">9. Solución de Problemas</h2>
+
+        <h3>El Excel no carga correctamente</h3>
+        <ul>
+            <li>Verifique que el archivo tenga las columnas requeridas</li>
+            <li>Asegúrese de que la hoja de datos se llame "Base"</li>
+            <li>Verifique que no haya filas vacías al inicio</li>
+        </ul>
+
+        <h3>Error al generar actas</h3>
+        <ul>
+            <li>Verifique que tenga permisos de escritura en las carpetas de la aplicación</li>
+                <li>Asegúrese de que <code>Documentos\Actas de ATASIS</code> exista y sea accesible</li>
+            <li>Cierre cualquier documento Word abierto que pueda estar en uso</li>
+        </ul>
+
+        <h3>La aplicación no inicia</h3>
+        <ul>
+            <li>Verifique que tenga Microsoft .NET Framework instalado</li>
+            <li>Ejecute el instalador nuevamente para reparar la instalación</li>
+            <li>Consulte con el administrador del sistema si tiene permisos suficientes</li>
+        </ul>
+
+        <h3>Configuración no se guarda</h3>
+        <ul>
+            <li>Verifique permisos de escritura en la carpeta de instalación</li>
+            <li>Ejecute la aplicación como administrador</li>
+        </ul>
+
+        <hr>
+
+        <h2>Soporte</h2>
+        <p>Para consultas o problemas técnicos, contacte a:</p>
+        <ul>
+            <li><strong>Desarrollador:</strong> Danielo Sotomayor</li>
+            <li><strong>Propietario:</strong> DTSR C.A.</li>
+        </ul>
+
+        <p><em>Este manual está sujeto a cambios sin previo aviso.</em></p>
+    </div>
+</body>
+</html>

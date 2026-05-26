@@ -1,0 +1,39 @@
+{
+  "app": {
+    "name": "ATASIS-INTi",
+    "version": "1.0.0",
+    "author": "INTi - Instituto Nacional de Tierras"
+  },
+  "directorio": {
+    "presidente": "David José Hernández Giménez",
+    "directores_principales": [
+      "Faiez Kassen Castillo",
+      "Giomar Gisela Blanco Espinoza",
+      "Lusmialit Lliliana Perdomo Torrealba",
+      "David Arturo Gómez Rodríguez"
+    ],
+    "directores_suplentes": [
+      "Virginia Coromoto Delgado Oropeza",
+      "Francisco Ramon Ojeda Barrera",
+      "Alfredo José Mora Álvarez",
+      "Gisela Ninoska Faraco De Cuellar"
+    ],
+    "secretaria": "Viviana Del Carmen Rivas Tovar"
+  },
+  "formato_acta": {
+    "hora_inicio": "9:00 a.m.",
+    "hora_fin": "11:30 a.m.",
+    "reunion_numero": "98"
+  },
+  "excel": {
+    "hoja_datos": "Base",
+    "columnas_requeridas": [
+      "Id punto de cuenta",
+      "Tipo de solicitud",
+      "Estado",
+      "Decisión",
+      "Sesión",
+      "Fecha"
+    ]
+  }
+}

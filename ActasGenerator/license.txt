@@ -1,0 +1,36 @@
+ACUERDO DE LICENCIA DE USO
+============================
+
+Generador de Actas INTi - Versión 1.0.0
+
+PROPIEDAD INTELECTUAL
+---------------------
+Este software es propiedad exclusiva de DTSR C.A.
+Desarrollado por: Daniel Sotomayor
+
+TÉRMINOS DE USO
+--------------
+Al instalar y utilizar este software, usted acepta los siguientes términos:
+
+1. Este software es proporcionado como un apoyo prestado al Instituto Nacional de Tierras (INTi).
+
+2. El software NO debe ser vendido, revendido, distribuido comercialmente o utilizado con fines de lucro sin autorización expresa por escrito de DTSR C.A.
+
+3. Está PROHIBIDO el plagio, copia no autorizada, modificación del código fuente, o cualquier intento de apropiación intelectual de este software.
+
+4. El software puede ser utilizado libremente por el INTi y sus funcionarios autorizados para la generación de actas oficiales.
+
+5. DTSR C.A. y Danielo Sotomayor se reservan todos los derechos de propiedad intelectual sobre este software.
+
+6. Este software se proporciona "tal cual", sin garantías de ningún tipo, expresas o implícitas.
+
+LIMITACIÓN DE RESPONSABILIDAD
+---------------------------
+En ningún caso DTSR C.A. ni Danielo Sotomayor serán responsables por daños directos, indirectos, incidentales, especiales o consecuentes que resulten del uso o mal uso de este software.
+
+CONTACTO
+--------
+Para consultas o autorizaciones, contactar a DTSR C.A.
+
+---
+Al hacer clic en "Acepto", usted confirma que ha leído, entendido y acepta los términos y condiciones de este acuerdo de licencia.
