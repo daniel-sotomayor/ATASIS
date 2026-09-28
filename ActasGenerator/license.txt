@@ -6,7 +6,7 @@ Generador de Actas INTi - Versión 1.0.0
 PROPIEDAD INTELECTUAL
 ---------------------
 Este software es propiedad exclusiva de DTSR C.A.
-Desarrollado por: Danielo Sotomayor
+Desarrollado por: Daniel Sotomayor
 
 TÉRMINOS DE USO
 --------------

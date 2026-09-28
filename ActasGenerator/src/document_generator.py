@@ -55,9 +55,25 @@ class ActaDocumentGenerator:
         shd.set(qn('w:fill'), color)
         cell._tc.get_or_add_tcPr().append(shd)
 
+    def _hide_cell_borders(self, cell):
+        """Oculta todos los bordes de una celda específica."""
+        tc = cell._tc
+        tcPr = tc.get_or_add_tcPr()
+        tcBorders = tcPr.first_child_found_in("w:tcBorders")
+        if tcBorders is None:
+            tcBorders = OxmlElement('w:tcBorders')
+            tcPr.append(tcBorders)
+        for edge in ('top', 'left', 'bottom', 'right'):
+            tag = f'w:{edge}'
+            element = tcBorders.find(qn(tag))
+            if element is None:
+                element = OxmlElement(tag)
+                tcBorders.append(element)
+            element.set(qn('w:val'), 'nil')
+
     def _format_cell_text(self, cell, text: str, bold=False,
                           font_size=10, alignment=WD_ALIGN_PARAGRAPH.LEFT,
-                          italic=False):
+                          italic=False, underline=False):
         """Escribe texto en una celda con formato básico."""
         cell.text = text
         p = cell.paragraphs[0]
@@ -67,6 +83,8 @@ class ActaDocumentGenerator:
             run.font.size   = Pt(font_size)
             run.font.bold   = bold
             run.font.italic = italic
+            if underline:
+                run.font.underline = True
 
     def _add_run(self, paragraph, text: str, bold=False, italic=True,
                  font_size=11):
@@ -100,12 +118,7 @@ class ActaDocumentGenerator:
         hora_inicio = hora_inicio or HORA_INICIO_DEFAULT
         hora_fin    = hora_fin    or HORA_FIN_DEFAULT
 
-        # Márgenes de página
-        for section in self.document.sections:
-            section.top_margin    = Cm(2.5)
-            section.bottom_margin = Cm(2.5)
-            section.left_margin   = Cm(2.5)
-            section.right_margin  = Cm(2.5)
+        # Márgenes de página (se configuran en _agregar_encabezado_oficial)
 
         self._agregar_encabezado_oficial(sesion, fecha_acta)
         self._agregar_texto_apertura(sesion, fecha_acta, hora_inicio)
@@ -128,7 +141,7 @@ class ActaDocumentGenerator:
     def _agregar_encabezado_oficial(self, sesion: ResumenSesion,
                                     fecha_acta: str = None):
         """
-        Encabezado oficial: tabla de 2 columnas.
+        Encabezado oficial: tabla de 2 columnas que aparece en TODAS las páginas.
 
         Columna izquierda (ancha):
           - Logo del INTi
@@ -137,7 +150,7 @@ class ActaDocumentGenerator:
         Columna derecha (angosta), 4 filas separadas con borde:
           - Acta Nro.: ORD XXXX-XX
           - Sesión Nro.: ORD XXXX-XX
-          - Pág.: (número de página)
+          - Pág.: (número de página dinámico)
           - Fecha DD/MM/YYYY
         """
         if fecha_acta is None:
@@ -153,8 +166,12 @@ class ActaDocumentGenerator:
             fecha_display = fecha_acta
             fecha_corta   = fecha_acta
 
+        # Obtener la sección actual y crear el encabezado
+        section = self.document.sections[0]
+        header = section.header
+        
         # Tabla principal del encabezado: 2 columnas
-        table = self.document.add_table(rows=4, cols=2)
+        table = header.add_table(rows=4, cols=2, width=Inches(6.65))
         table.style = 'Table Grid'
 
         # Anchos: izquierda ~72%, derecha ~28%
@@ -197,12 +214,12 @@ class ActaDocumentGenerator:
         p.alignment = WD_ALIGN_PARAGRAPH.LEFT
         self._add_run(p, f"Sesión Nro.: {sesion.numero_sesion}", font_size=11)
 
-        # Fila 2: Pág.
+        # Fila 2: Pág. (se mostrará como "Pág. :" sin número ya que es un encabezado)
         c = table.cell(2, 1)
         c.vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
         p = c.paragraphs[0]
         p.alignment = WD_ALIGN_PARAGRAPH.LEFT
-        self._add_run(p, "Pág. : 1", font_size=11)
+        self._add_run(p, "Pág. :", font_size=11)
 
         # Fila 3: Fecha
         c = table.cell(3, 1)
@@ -211,7 +228,10 @@ class ActaDocumentGenerator:
         p.alignment = WD_ALIGN_PARAGRAPH.LEFT
         self._add_run(p, f"Fecha {fecha_display}", font_size=11)
 
-        # Espacio después del encabezado
+        # Ajustar márgenes superiores para que el contenido no se solape con el encabezado
+        section.top_margin = Cm(4.0)  # Aumentar margen superior para acomodar el encabezado
+        
+        # Espacio después del encabezado (en el cuerpo del documento)
         self.document.add_paragraph()
 
     def _agregar_texto_apertura(self, sesion: ResumenSesion,
@@ -468,61 +488,60 @@ class ActaDocumentGenerator:
     def _agregar_firmas(self):
         """
         Bloque de firmas replicando exactamente el formato oficial:
-
-          Tabla de 4 columnas:
-            Fila 0: espacio en blanco (línea de firma del presidente)
-            Fila 1: nombre del Presidente centrado (columnas fusionadas)
-            Fila 2: etiqueta 'Presidente' centrada
-            Fila 3: espacio separador
-            Fila 4: 4 directores principales (uno por columna)
-            Fila 5: etiqueta 'Directores Principales' fusionada
-            Fila 6: espacio separador
-            Fila 7: 4 directores suplentes (uno por columna)
-            Fila 8: etiqueta 'Directores Suplentes' fusionada
-
-          Debajo de la tabla:
-            Línea de firma + nombre + cargo de la Secretaria del Directorio
+        Tabla de 4 columnas con bordes visibles, donde las esquinas
+        superiores están ocultas para darle forma a la firma del Presidente.
         """
         self.document.add_paragraph()
 
-        # Tabla de 4 columnas (una por director)
+        # Tabla de 4 columnas
         table = self.document.add_table(rows=1, cols=4)
         table.alignment = WD_TABLE_ALIGNMENT.CENTER
+        table.style = 'Table Grid'
 
-        # Fila 0: espacio para la firma del presidente
-        # La fusión debe hacerse ANTES de escribir en la celda
-        c0 = table.cell(0, 0)
-        c0.merge(table.cell(0, 3))
-        c0.paragraphs[0].add_run("\n\n")
+        # Fila 0: espacio para la firma del presidente (columnas 1 y 2)
+        self._hide_cell_borders(table.cell(0, 0))
+        self._hide_cell_borders(table.cell(0, 3))
+        c0 = table.cell(0, 1)
+        c0.merge(table.cell(0, 2))
+        c0.paragraphs[0].add_run("\n\n\n\n")
 
-        # Fila 1: nombre del Presidente centrado (fusionar antes de escribir)
+        # Fila 1: nombre del Presidente
         row = table.add_row()
-        merged = row.cells[0].merge(row.cells[3])
+        self._hide_cell_borders(row.cells[0])
+        self._hide_cell_borders(row.cells[3])
+        merged = row.cells[1].merge(row.cells[2])
         self._format_cell_text(
             merged, MIEMBROS_DIRECTORIO['presidente'],
-            bold=True, font_size=10, italic=True,
+            bold=True, font_size=10, italic=True, underline=True,
             alignment=WD_ALIGN_PARAGRAPH.CENTER
         )
 
         # Fila 2: etiqueta Presidente
         row = table.add_row()
-        merged = row.cells[0].merge(row.cells[3])
+        self._hide_cell_borders(row.cells[0])
+        self._hide_cell_borders(row.cells[3])
+        merged = row.cells[1].merge(row.cells[2])
         self._format_cell_text(
             merged, "Presidente",
-            bold=True, font_size=10, italic=True,
+            bold=True, font_size=10, italic=True, underline=True,
             alignment=WD_ALIGN_PARAGRAPH.CENTER
         )
 
-        # Fila 3: espacio separador
+        # Fila 3: fila con guiones "-"
         row = table.add_row()
-        row.cells[0].merge(row.cells[3]).paragraphs[0].add_run(" ")
+        for i in range(4):
+            self._format_cell_text(
+                row.cells[i], "-",
+                bold=False, font_size=10,
+                alignment=WD_ALIGN_PARAGRAPH.CENTER
+            )
 
-        # Fila 4: 4 directores principales (uno por columna)
+        # Fila 4: 4 directores principales
         row = table.add_row()
         for i, nombre in enumerate(MIEMBROS_DIRECTORIO['directores_principales'][:4]):
             self._format_cell_text(
                 row.cells[i], nombre,
-                bold=True, font_size=9, italic=True,
+                bold=True, font_size=9, italic=True, underline=True,
                 alignment=WD_ALIGN_PARAGRAPH.CENTER
             )
 
@@ -531,20 +550,21 @@ class ActaDocumentGenerator:
         merged = row.cells[0].merge(row.cells[3])
         self._format_cell_text(
             merged, "Directores Principales",
-            bold=True, font_size=9, italic=True,
+            bold=True, font_size=9, italic=True, underline=True,
             alignment=WD_ALIGN_PARAGRAPH.CENTER
         )
 
-        # Fila 6: espacio separador
+        # Fila 6: espacio separador para firmas de suplentes
         row = table.add_row()
-        row.cells[0].merge(row.cells[3]).paragraphs[0].add_run(" ")
+        for i in range(4):
+            row.cells[i].paragraphs[0].add_run("\n\n")
 
-        # Fila 7: 4 directores suplentes (uno por columna)
+        # Fila 7: 4 directores suplentes
         row = table.add_row()
         for i, nombre in enumerate(MIEMBROS_DIRECTORIO['directores_suplentes'][:4]):
             self._format_cell_text(
                 row.cells[i], nombre,
-                bold=True, font_size=9, italic=True,
+                bold=True, font_size=9, italic=True, underline=True,
                 alignment=WD_ALIGN_PARAGRAPH.CENTER
             )
 
@@ -553,7 +573,7 @@ class ActaDocumentGenerator:
         merged = row.cells[0].merge(row.cells[3])
         self._format_cell_text(
             merged, "Directores Suplentes",
-            bold=True, font_size=9, italic=True,
+            bold=True, font_size=9, italic=True, underline=True,
             alignment=WD_ALIGN_PARAGRAPH.CENTER
         )
 

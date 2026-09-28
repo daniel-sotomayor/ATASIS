@@ -201,14 +201,10 @@ class ExcelProcessor:
             self.error_columnas = None  # Sin errores de columnas
 
             # Eliminar filas sin identificador de punto de cuenta
-            self.df = self.df.dropna(subset=['Id punto de cuenta'], how='all')
-            self.df = self.df[
-                self.df['Id punto de cuenta'].astype(str).str.strip() != ''
-            ]
-            self.df = self.df[
-                self.df['Id punto de cuenta'].astype(str).str.lower() != 'nan'
-            ]
-            self.df['Id punto de cuenta'] = self.df['Id punto de cuenta'].astype(str)
+            self.df['Id punto de cuenta'] = self.df['Id punto de cuenta'].astype(str).str.strip()
+            mask = (self.df['Id punto de cuenta'] != '') & \
+                   (self.df['Id punto de cuenta'].str.lower() != 'nan')
+            self.df = self.df[mask].copy()
 
             logger.info("Archivo cargado: %s | Hoja: %s | Filas: %d",
                         self.file_path.name, sheet_name, len(self.df))
